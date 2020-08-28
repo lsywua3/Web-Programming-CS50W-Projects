@@ -1,7 +1,5 @@
 # Project 1
 
-## Web Programming with Python and JavaScript
-
 ## Objectives:
 * Become more comfortable with Python.
 * Gain experience with Flask.
