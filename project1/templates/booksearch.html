@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Book Search
+{% endblock %}
+
+{% block body %}
+    Welcome, {{user}}
+    <a href="{{ url_for('logout') }}">Logout of this account</a>
+    <div>
+        <form action="{{ url_for('search') }}" method="POST">
+        <input type="search" name="search" placeholder="What book do you want to search?">
+        <button>Confirm</button>
+    </form>
+    </div>
+    <h1>Here's what we have:</h1>
+    <ul>
+        {% for book in book_lists %}
+        <li>
+            <form action="{{ url_for('bookpage', isbn=book.isbn) }}" method="POST">
+                <button>ISBN: {{ book.isbn }}, name: {{ book.title }}, author: {{ book.author }}</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

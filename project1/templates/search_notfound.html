@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block body %}
+    Welcome, {{user}}
+    <a href="{{ url_for('logout') }}">Logout of this account</a>
+    <div>
+        <form action="{{ url_for('search') }}" method="POST">
+        <input type="search" name="search" placeholder="What book do you want to search?">
+        <button>Confirm</button>
+    </form>
+    </div>
+    <h2>{{message}}</h2>
+    
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Error Occured!
+{% endblock %}
+
+{% block body %}
+    <h1>Error:</h1>
+    {{message}}
+    <!--TODO: Need to figure out a way to direct to other pages-->
+    <a href="{{url_for('index')}}">Go Back to Login</a>
+
+{% endblock %}
+
+

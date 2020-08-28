@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block body %}
+    <div class="login-section">
+        <form action = "{{ url_for('homepage')}}" method="post">
+            <input type="text" name="username" placeholder="Please Enter Your Username">
+            <input type="password" name="password" placeholder="Please Enter Your Password">
+            <button>Login</button>
+            <a href="{{ url_for('register') }}">Register</a>
+        </form>
+    </div>
+
+
+{% endblock %}
+
+

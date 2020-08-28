@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    homepage
+{% endblock %}
+
+{% block body %}
+    <h1>Book Info:</h1>
+    <h1>{{isbn}}</h1>
+    <h1>{{title}}</h1>
+    <h1>{{author}}</h1>
+    <h1>{{year}}</h1>
+    <h1>Goodread average rating: {{goodread_average}}</h1>
+    <h1>Goodread total rating number: {{goodread_count}}</h1>
+    {% if user_reviews|length != 0 %}
+        <ul>
+            {% for user_review in user_reviews %}
+            <li>
+                <h3>{{user_review[0]}}</h3>
+                <h3>{{user_review[1]}}</h3>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3>No reviews for this book yet</h3>
+    {% endif %}
+
+
+    <form action = "{{ url_for('bookpage', isbn=isbn) }}" method="POST">
+        <fieldset>
+        <label for="your_ratings">How would you rate this book?</label>
+        <select name="your_ratings">
+            <option value="placeholder" disabled selected hidden>Select your rating!</option>
+            <option value="1">1 Star</option>
+            <option value="2">2 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="5">5 Stars</option>
+        </select>
+
+        <textarea name="your_reviews" rows="10" cols="50" placeholder="Write your reviews for this book!"></textarea>
+        <button>Submit</button>
+
+        </fieldset>
+    </form>
+
+{% endblock %}
+
+
